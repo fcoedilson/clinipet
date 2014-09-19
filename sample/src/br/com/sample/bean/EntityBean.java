@@ -96,6 +96,17 @@ public abstract class EntityBean<Id extends Serializable, Entity extends Seriali
 		return super.search();
 	}
 
+	public String searchSort() {
+		this.entities = retrieveEntityService().findAll("id");
+		this.entities = retrieveEntityService().filter(this.entities, this.filter);
+		return super.search();
+	}
+
+	public String searchStatus() {
+		this.entities = retrieveEntityService().findAllByStatus("id");
+		return super.search();
+	}
+
 	public String populate() {
 		return SUCCESS;
 	}

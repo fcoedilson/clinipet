@@ -26,6 +26,22 @@ public class PermissaoBean extends EntityBean<Long, Permissao> {
 	@Autowired
 	private PerfilService perfilService = new PerfilService();
 
+	@Override
+	public String search() {
+		this.roles = perfilService.retrieveAll();
+		return super.searchSort();
+	}
+
+	public String save(){
+		super.save();
+		return searchSort();
+	}
+
+	public String update(){
+		super.update();
+		return searchSort();
+	}
+
 	protected Long retrieveEntityId(Permissao entity) {
 		return entity.getId();
 	}

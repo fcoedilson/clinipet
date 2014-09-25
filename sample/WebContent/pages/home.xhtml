@@ -10,9 +10,11 @@
     xmlns:ui="http://java.sun.com/jsf/facelets" 
     xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-	<ui:define name="content">
+	<ui:define name="pageContent">
 
 		<h:messages styleClass="messages" globalOnly="true" />
+		
+		<div id="cadastro">
 	
 		<c:if test="#{controlBean.clienteBean}">
 			<c:if test="#{clienteBean.searchState}">
@@ -22,6 +24,15 @@
 				<ui:include src="cadastros/cliente/cliente.xhtml" />
 			</c:if>
 		</c:if>
+		
+		<c:if test="#{controlBean.usuarioBean}">
+			<c:if test="#{usuarioBean.searchState}">
+				<ui:include src="cadastros/usuario/usuarioList.xhtml"/>
+			</c:if>
+			<c:if test="#{usuarioBean.saveState || usuarioBean.updateState}">
+				<ui:include src="cadastros/usuario/usuario.xhtml"/>
+			</c:if>
+		</c:if>		
 
 		<c:if test="#{controlBean.animalBean}">
 			<c:if test="#{animalBean.searchState}">
@@ -40,6 +51,8 @@
 				<ui:include src="cadastros/raca/raca.xhtml"/>
 			</c:if>
 		</c:if>
+		
+		</div>
 
 	</ui:define>
 

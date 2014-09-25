@@ -9,16 +9,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Raca implements Serializable{
+public class Especie implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="raca_id")
+	@Column(name="especie_id")
 	private Long id;
 	
 	private String nome;
 	
 	private String descricao;
+	
+	@Column(name="tipo_animal")
+	private String tipo;
 
 	public Long getId() {
 		return id;
@@ -43,6 +46,14 @@ public class Raca implements Serializable{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	@Override
 	public int hashCode() {
@@ -61,7 +72,7 @@ public class Raca implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Raca other = (Raca) obj;
+		Especie other = (Especie) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

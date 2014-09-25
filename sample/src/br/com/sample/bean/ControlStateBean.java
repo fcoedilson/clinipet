@@ -57,7 +57,6 @@ public class ControlStateBean extends BaseStateBean implements Serializable {
 				for (Permissao permissao : this.role.getPermissoes()) {
 					this.permissoes.add(permissao);
 				}
-
 			}
 			return SUCCESS;
 		} else {
@@ -162,10 +161,6 @@ public class ControlStateBean extends BaseStateBean implements Serializable {
 		return ClienteBean.class.getSimpleName().equals(getCurrentBean());
 	}
 
-	public boolean isPermissaoBean(){
-		return PermissaoBean.class.getSimpleName().equals(getCurrentBean());
-	}
-
 	public boolean isPessoaBean(){
 		return PessoaBean.class.getSimpleName().equals(getCurrentBean());
 	}
@@ -181,10 +176,10 @@ public class ControlStateBean extends BaseStateBean implements Serializable {
 	public boolean isRacaBean(){
 		return RacaBean.class.getSimpleName().equals(getCurrentBean());
 	}	
-	
-	public boolean isPerfilBean(){
-		return PerfilBean.class.getSimpleName().equals(getCurrentBean());
-	}
+
+	public boolean isProdutoBean(){
+		return ProdutoBean.class.getSimpleName().equals(getCurrentBean());
+	}	
 	
 	public String getUserMail() {
 		return userMail;
